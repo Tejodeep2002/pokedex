@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import Navbar from "../../components/Navbar";
 import Head from "next/head";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
@@ -15,6 +14,8 @@ export async function getStaticPaths() {
     query: gql`
       query pokemons($first: Int!) {
         pokemons(first: $first) {
+          id
+          number
           name
         }
       }
@@ -24,9 +25,9 @@ export async function getStaticPaths() {
     },
   });
 
-  const paths =  data.pokemons.map((pokemon) => {
+  const paths = data.pokemons.map((pokemon) => {
     return {
-      params: { slug: pokemon.name },
+      params: { slug: `${pokemon.name}+${pokemon.id}` },
     };
   });
 
@@ -37,6 +38,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
+  const query = context.params.slug.split("+");
+
+  const pokemonName = query[0];
+  const pokemonId = query[1];
+
   const client = new ApolloClient({
     uri: "https://graphql-pokemon2.vercel.app",
     cache: new InMemoryCache(),
@@ -44,8 +50,8 @@ export async function getStaticProps(context) {
 
   const { data } = await client.query({
     query: gql`
-      query pokemons($first: Int!) {
-        pokemons(first: $first) {
+      query pokemon($id: String, $name: String) {
+        pokemon(id: $id, name: $name) {
           id
           number
           name
@@ -82,9 +88,11 @@ export async function getStaticProps(context) {
       }
     `,
     variables: {
-      first: 1008,
+      "id": pokemonId,
+      "name": pokemonName
     },
   });
+
 
   return {
     props: { data },
@@ -94,14 +102,14 @@ export async function getStaticProps(context) {
 
 const slug = ({ data }) => {
 
-  
+  console.log(data)
   return (
     <>
       <Head>
         <title>Pokemon</title>
       </Head>
       <Navbar />
-      <DetailsBody data={data} />
+      <DetailsBody data={data.pokemon} />
     </>
   );
 };

@@ -4,13 +4,15 @@ import PokemonDetails from "./PokemonDetails";
 import Link from "next/link";
 
 const DetailsBody = ({ data }) => {
-  const router = useRouter();
-  const query = router.query.slug;
+  // const router = useRouter();
+  // const query = router.query.slug;
 
-  const [pokemonData, setPokemonData] = useState(data.pokemons);
-  const [details, setDetails] = useState(
-    ...pokemonData.filter((items, index) => items.name === query)
-  );
+  // console.log(query)
+
+  const [pokemonData, setPokemonData] = useState(data);
+  // const [details, setDetails] = useState(
+  //   ...pokemonData.filter((items) => items.name === query)
+  // );
 
   // const [prevDetails, setPrevDetails] = useState(
   //   ...pokemonData.filter(
@@ -34,6 +36,7 @@ const DetailsBody = ({ data }) => {
   //     window.location.href = `/details/${nextDetails.name}`;
   //   }
   // };
+
 
   return (
     <>
@@ -60,10 +63,10 @@ const DetailsBody = ({ data }) => {
             href="/"
             className="w-full h-12 flex justify-center items-center mr-1 bg-gray-400 rounded-2xl hover:bg-blue-500 text-white font-bold text-2xl"
           >
-            <button>Back to Menu</button>
+            Back to Menu
           </Link>
           <div className="w-full p-4 bg-slate-300 mt-8 flex flex-wrap flex-col justify-center items-center rounded-2xl">
-            <PokemonDetails data={details} />
+            <PokemonDetails data={pokemonData} />
           </div>
         </div>
       </div>

@@ -5,11 +5,12 @@ import React, { useEffect, useState } from "react";
 const Pokemondata = require("./Data");
 
 const PokemonDetails = ({ data }) => {
+
   const [pokeInfo, setPokeInfo] = useState(data);
   const [showEvolution, setShowEvolution] = useState(false);
   const [evolutionTrack, setEvolutionTrack] = useState(data.evolutions);
   return (
-    <div classname={`${showEvolution === true ? "blur-md" : ""}`}>
+    <>
       <div className="font-bold text-3xl">
         {pokeInfo.name} #{pokeInfo.number}
       </div>
@@ -262,7 +263,7 @@ const PokemonDetails = ({ data }) => {
           </div>
         ) : null}
       </div>
-    </div>
+    </>
   );
 };
 

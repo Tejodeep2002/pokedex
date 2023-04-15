@@ -44,7 +44,7 @@ const HomePageBody = ({ data }) => {
         </div>
         <div className="w-9/12 bg-white rounded-3xl p-8 justify-evenly flex flex-wrap gap-1">
           {records.map((items, index) => (
-            <Link href={`/details/${items.name}`} key={items.id}>
+            <Link href={`/details/${items.name}+${items.id}`} key={items.id}>
               <PokemonShow pokedata={items} keys={items.id} />
             </Link>
           ))}
