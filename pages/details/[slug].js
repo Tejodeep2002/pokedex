@@ -96,7 +96,7 @@ export async function getStaticProps(context) {
 
   return {
     props: { data },
-    revalidate: 1,
+    
   };
 }
 
@@ -109,7 +109,10 @@ const slug = ({ data }) => {
         <title>Pokemon</title>
       </Head>
       <Navbar />
-      <DetailsBody data={data.pokemon} />
+      {
+        (data!== undefined && data!== null ) ?<DetailsBody data={data.pokemon} />:<div></div>
+      }
+      
     </>
   );
 };
