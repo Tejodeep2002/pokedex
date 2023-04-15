@@ -176,7 +176,7 @@ const PokemonDetails = ({ data }) => {
               showEvolution === true ? "bg-blue-800" : ""
             } bg-blue-500 border-black border-2 rounded-3xl text-white font-bold`}
             onClick={() => setShowEvolution(!showEvolution)}
-            disabled={showEvolution === true ? "true" : ""}
+            disabled={showEvolution === true ? true : ""}
           >
             Show Evolution
           </button>

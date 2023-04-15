@@ -99,7 +99,6 @@ export async function getStaticProps(context) {
 }
 
 const slug = ({ data }) => {
-  console.log(data);
   return (
     <>
       <Head>
