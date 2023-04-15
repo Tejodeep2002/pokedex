@@ -1,9 +1,7 @@
-
 import Head from "next/head";
 import {
   ApolloClient,
   InMemoryCache,
-  ApolloProvider,
   gql,
 } from "@apollo/client";
 import Navbar from "@/components/Navbar";
@@ -46,9 +44,6 @@ export async function getStaticProps(context) {
       first: 510,
     },
   });
-
-  console.log(data);
-
   return {
     props: { data },
   };
@@ -60,7 +55,6 @@ const index = ({ data }) => {
       <Head>
         <title>Pokemon</title>
       </Head>
-
       <Navbar />
       <HomePageBody data={data} />
     </>

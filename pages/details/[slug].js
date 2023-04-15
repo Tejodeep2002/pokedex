@@ -2,15 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import Navbar from "../../components/Navbar";
 import Head from "next/head";
-import PokemonDetails from "../../components/PokemonDetails";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  gql,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import DetailsBody from "@/components/DetailsBody";
-import { useRouter } from "next/router";
 
 export async function getStaticPaths() {
   const client = new ApolloClient({
@@ -33,11 +26,13 @@ export async function getStaticPaths() {
     },
   });
 
-  const paths = await data.pokemons.map((pokemon) => {
+  const paths =  data.pokemons.map((pokemon) => {
     return {
-      params: { Slug: `${pokemon.name}` },
+      params: { slug: pokemon.name },
     };
   });
+
+  console.log(paths)
 
   return {
     paths: paths,
@@ -46,11 +41,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  // const query = context.params.slug.split("+");
-
-  // const pokemonName = query[0];
-  // const pokemonId = query[1];
-
   const client = new ApolloClient({
     uri: "https://graphql-pokemon2.vercel.app",
     cache: new InMemoryCache(),
@@ -105,24 +95,16 @@ export async function getStaticProps(context) {
   };
 }
 
-const Slug = ({ data }) => {
-  const router = useRouter()
-
-  console.log("line 111",router.query)
-
-  // const pokemonName = query[0];
-  // const pokemonId = query[1];
-
-
+const slug = ({ data }) => {
   return (
     <>
       <Head>
         <title>Pokemon</title>
       </Head>
       <Navbar />
-      <DetailsBody data={data} />
+      <DetailsBody data={data.pokemons} />
     </>
   );
 };
 
-export default Slug;
+export default slug;

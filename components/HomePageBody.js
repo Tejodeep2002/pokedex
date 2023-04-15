@@ -36,12 +36,6 @@ const HomePageBody = ({ data }) => {
       setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit);
     }
   };
-
-
-  
-
-
-
   return (
     <>
       <div className="flex flex-col items-center justify-center">
@@ -68,10 +62,11 @@ const HomePageBody = ({ data }) => {
           </button>
           {pages.map((number, index) => {
             if (
-              number < maxPageNumberLimit + 1  &&
+              number < maxPageNumberLimit + 1 &&
               number > minPageNumberLimit
             ) {
-              return <button
+              return (
+                <button
                   className={` bg-blue-500 rounded-none text-white p-2 text-xl page-link ${
                     currentPage === number
                       ? "bg-white text-blue-600 font-bold"
@@ -82,6 +77,7 @@ const HomePageBody = ({ data }) => {
                 >
                   {number}
                 </button>
+              );
             } else {
               return null;
             }

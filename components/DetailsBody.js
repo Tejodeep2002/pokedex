@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { useRouter } from "next/router";
-import PokemonDetails from './PokemonDetails';
+import PokemonDetails from "./PokemonDetails";
 
-const DetailsBody = ({data}) => {
+const DetailsBody = ({ data }) => {
   const router = useRouter();
-  let query = router.query.Slug;
-  
-    console.log("Details.body",query)
-  const [pokemonData, setPokemonData] = useState(data.pokemons);
+  const query = router.query.slug;
+
+  console.log("Details.body", query);
+  const [pokemonData, setPokemonData] = useState(data);
   const [details, setDetails] = useState(
     ...pokemonData.filter((items, index) => items.name === query)
   );
@@ -23,35 +23,10 @@ const DetailsBody = ({data}) => {
     )
   );
 
-  // const [PageNumberLimit, setPageNumberLimit] = useState(1);
-  // const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(3);
-  // const [minPageNumberLimit, setMinPageNumberLimit] = useState(1);
-  // const recordsPerPage = 20;
-  // const lastPostIndex = currentPage * recordsPerPage;
-  // const firstPostIndex = lastPostIndex - recordsPerPage;
-  // const records = pokemonData.slice(firstPostIndex, lastPostIndex);
-
-  // const noOfPages = Math.ceil(pokemonData.length / recordsPerPage);
-  // const pages = [];
-  // for (let i = 1; i <= noOfPages; i++) {
-  //   pages.push(i);
-  // }
-
-  // useEffect(()=>{
-  //   const details = pokemonData.filter((items,index)=>items.name===query);
-  //   setDetails(...details)
-
-  // },[pokemonData])
-
   const handlePrev = () => {
     if (details.number - 1 !== 0) {
       window.location.href = `/details/${prevDetails.name}`;
     }
-
-    // if ((currentPage - 1) % maxPageNumberLimit === 0) {
-    //   setMaxPageNumberLimit(maxPageNumberLimit - PageNumberLimit);
-    //   setMinPageNumberLimit(minPageNumberLimit - PageNumberLimit);
-    // }
   };
 
   const handleNext = () => {
@@ -59,17 +34,12 @@ const DetailsBody = ({data}) => {
       window.location.href = `/details/${nextDetails.name}`;
     }
   };
-  //   if (currentPage + 1 >= maxPageNumberLimit) {
-  //     setMaxPageNumberLimit(maxPageNumberLimit + PageNumberLimit);
-  //     setMinPageNumberLimit(minPageNumberLimit + PageNumberLimit);
-  //   }
-  // };
 
   console.log(details);
 
   return (
     <>
-    <div className="flex flex-col items-center justify-center ">
+      <div className="flex flex-col items-center justify-center ">
         <div className="w-9/12 p-8 mt-12 bg-white rounded-3xl  justify-evenly flex flex-wrap ">
           <div className="w-full flex ">
             <button
@@ -93,9 +63,8 @@ const DetailsBody = ({data}) => {
           </div>
         </div>
       </div>
-      
     </>
-  )
-}
+  );
+};
 
-export default DetailsBody
+export default DetailsBody;
