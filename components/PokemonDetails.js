@@ -189,7 +189,7 @@ const PokemonDetails = ({ data }) => {
             <div className="flex gap-4">
               {evolutionTrack !== null ? (
                 evolutionTrack.map((pokedata, index) => (
-                  <div className="flex flex-col items-center gap-2 text-white text-lg font-bold">
+                  <div className="flex flex-col items-center gap-2 text-white text-lg font-bold" key={index}>
                     <div className="w-[10rem] h-[10rem] rounded-full border-black border-4 bg-white flex justify-center items-center ">
                       <Image
                         src={pokedata.image}

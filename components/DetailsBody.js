@@ -12,16 +12,16 @@ const DetailsBody = ({ data }) => {
     ...pokemonData.filter((items, index) => items.name === query)
   );
 
-  const [prevDetails, setPrevDetails] = useState(
-    ...pokemonData.filter(
-      (items, index) => parseInt(items.number) === parseInt(details.number) - 1
-    )
-  );
-  const [nextDetails, setNextDetails] = useState(
-    ...pokemonData.filter(
-      (items, index) => parseInt(items.number) === parseInt(details.number) + 1
-    )
-  );
+  // const [prevDetails, setPrevDetails] = useState(
+  //   ...pokemonData.filter(
+  //     (items, index) => parseInt(items.number) === parseInt(details.number) - 1
+  //   )
+  // );
+  // const [nextDetails, setNextDetails] = useState(
+  //   ...pokemonData.filter(
+  //     (items, index) => parseInt(items.number) === parseInt(details.number) + 1
+  //   )
+  // );
 
   // const handlePrev = () => {
   //   if (details.number - 1 !== 0) {
@@ -34,7 +34,6 @@ const DetailsBody = ({ data }) => {
   //     window.location.href = `/details/${nextDetails.name}`;
   //   }
   // };
-
 
   return (
     <>
@@ -57,15 +56,12 @@ const DetailsBody = ({ data }) => {
               Next
             </button>
           </div> */}
-          <Link href="/"
-          className="w-full h-12 flex justify-center items-center mr-1 bg-gray-400 rounded-2xl hover:bg-blue-500 text-white font-bold text-2xl"
+          <Link
+            href="/"
+            className="w-full h-12 flex justify-center items-center mr-1 bg-gray-400 rounded-2xl hover:bg-blue-500 text-white font-bold text-2xl"
           >
-          <button
-              
-
-            >
-              Back to Menu
-            </button></Link>
+            <button>Back to Menu</button>
+          </Link>
           <div className="w-full p-4 bg-slate-300 mt-8 flex flex-wrap flex-col justify-center items-center rounded-2xl">
             <PokemonDetails data={details} />
           </div>
