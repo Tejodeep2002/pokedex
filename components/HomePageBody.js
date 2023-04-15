@@ -67,9 +67,8 @@ const HomePageBody = ({ data }) => {
             ) {
               return (
                 <button
-                  className={` bg-blue-500 rounded-none text-white p-2 text-xl page-link ${
-                    currentPage === number
-                      ? "bg-white text-blue-600 font-bold"
+                  className={` bg-blue-500 rounded-none  p-2 text-xl page-link ${
+                    currentPage === number ? "bg-white text-blue-600 font-bold"
                       : null
                   }`}
                   key={index}

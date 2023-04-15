@@ -9,7 +9,7 @@ const PokemonDetails = ({ data }) => {
   const [showEvolution, setShowEvolution] = useState(false);
   const [evolutionTrack, setEvolutionTrack] = useState(data.evolutions);
   return (
-    <>
+    <div classname={`${showEvolution === true ? "blur-md" : ""}`}>
       <div className="font-bold text-3xl">
         {pokeInfo.name} #{pokeInfo.number}
       </div>
@@ -172,42 +172,43 @@ const PokemonDetails = ({ data }) => {
       <div className=" flex flex-col justify-center items-center mt-6">
         <div className="">
           <button
-            className="  p-4 bg-blue-500 border-black border-2 rounded-3xl text-white font-bold"
+            className={`p-4 ${
+              showEvolution === true ? "bg-blue-800" : ""
+            } bg-blue-500 border-black border-2 rounded-3xl text-white font-bold`}
             onClick={() => setShowEvolution(!showEvolution)}
+            disabled={showEvolution === true ? "true" : ""}
           >
             Show Evolution
           </button>
         </div>
         {showEvolution === true ? (
-          <div className="w-[51rem] h-[51rem] p-4 bg-blue-600 flex flex-col items-center gap-8 ">
+          <div
+            className={`z-10 absolute top-[25rem] w-[40rem] h-[27rem] p-4 bg-sky-700 flex flex-col items-center gap-8 rounded-3xl `}
+          >
             <span className="text-white font-semibold text-2xl">Evolution</span>
             <div className="flex gap-4">
               {evolutionTrack !== null ? (
                 evolutionTrack.map((pokedata, index) => (
-                  <Link href={`${pokedata.name}`} key={index}>
-                    <div
-                      className="flex flex-col items-center gap-2 text-white text-lg font-bold"
-                      
-                    >
-                      <div className="w-[10rem] h-[10rem] rounded-full border-black border-4 bg-white flex justify-center items-center">
-                        <Image
-                          src={pokedata.image}
-                          alt={"Pokemion Image"}
-                          height={150}
-                          width={150}
-                          className="scale-75"
-                        />
-                      </div>
+                  <div className="flex flex-col items-center gap-2 text-white text-lg font-bold">
+                    <div className="w-[10rem] h-[10rem] rounded-full border-black border-4 bg-white flex justify-center items-center ">
+                      <Image
+                        src={pokedata.image}
+                        alt={"Pokemion Image"}
+                        height={150}
+                        width={150}
+                        className="scale-75 w-[10rem] h-[10rem] rounded-full"
+                      />
+                    </div>
 
-                      <span>
-                        {pokedata.name} #{pokedata.number}
-                      </span>
+                    <span>
+                      {pokedata.name} #{pokedata.number}
+                    </span>
 
-                      <span className="flex justify-start">
-                        {pokedata.types.map((items, index) => (
-                          <span
-                            key={index}
-                            className={`w-24 h-8 mx-2 rounded-lg flex justify-center items-center text-lg border-black border-2
+                    <span className="flex justify-start">
+                      {pokedata.types.map((items, index) => (
+                        <span
+                          key={index}
+                          className={`w-24 h-8 mx-2 rounded-lg flex justify-center items-center text-lg border-black border-2
                           ${
                             items === "Grass"
                               ? "bg-green-600"
@@ -239,22 +240,29 @@ const PokemonDetails = ({ data }) => {
                               ? "bg-yellow-400"
                               : ""
                           } `}
-                          >
-                            {items}
-                          </span>
-                        ))}
-                      </span>
-                    </div>
-                  </Link>
+                        >
+                          {items}
+                        </span>
+                      ))}
+                    </span>
+                  </div>
                 ))
               ) : (
-                <span>This is the Maximum State. No Next Evolution</span>
+                <div className="text-white font-bold flex justify-center items-center">
+                  <h2>This is the Maximum State. No Next Evolution</h2>
+                </div>
               )}
             </div>
+            <button
+              className="  p-3 bg-red-500 border-black border-2 rounded-3xl text-white font-bold"
+              onClick={() => setShowEvolution(!showEvolution)}
+            >
+              Close
+            </button>
           </div>
         ) : null}
       </div>
-    </>
+    </div>
   );
 };
 

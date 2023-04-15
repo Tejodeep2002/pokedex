@@ -15,8 +15,6 @@ export async function getStaticPaths() {
     query: gql`
       query pokemons($first: Int!) {
         pokemons(first: $first) {
-          id
-          number
           name
         }
       }
@@ -32,11 +30,9 @@ export async function getStaticPaths() {
     };
   });
 
-  console.log(paths)
-
   return {
     paths: paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
@@ -92,17 +88,20 @@ export async function getStaticProps(context) {
 
   return {
     props: { data },
+    revalidate: 1,
   };
 }
 
 const slug = ({ data }) => {
+
+  
   return (
     <>
       <Head>
         <title>Pokemon</title>
       </Head>
       <Navbar />
-      <DetailsBody data={data.pokemons} />
+      <DetailsBody data={data} />
     </>
   );
 };

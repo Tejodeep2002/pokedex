@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import PokemonDetails from "./PokemonDetails";
+import Link from "next/link";
 
 const DetailsBody = ({ data }) => {
   const router = useRouter();
   const query = router.query.slug;
 
-  console.log("Details.body", query);
-  const [pokemonData, setPokemonData] = useState(data);
+  const [pokemonData, setPokemonData] = useState(data.pokemons);
   const [details, setDetails] = useState(
     ...pokemonData.filter((items, index) => items.name === query)
   );
@@ -23,25 +23,24 @@ const DetailsBody = ({ data }) => {
     )
   );
 
-  const handlePrev = () => {
-    if (details.number - 1 !== 0) {
-      window.location.href = `/details/${prevDetails.name}`;
-    }
-  };
+  // const handlePrev = () => {
+  //   if (details.number - 1 !== 0) {
+  //     window.location.href = `/details/${prevDetails.name}`;
+  //   }
+  // };
 
-  const handleNext = () => {
-    if (pokemonData.length !== details.number) {
-      window.location.href = `/details/${nextDetails.name}`;
-    }
-  };
+  // const handleNext = () => {
+  //   if (pokemonData.length !== details.number) {
+  //     window.location.href = `/details/${nextDetails.name}`;
+  //   }
+  // };
 
-  console.log(details);
 
   return (
     <>
       <div className="flex flex-col items-center justify-center ">
         <div className="w-9/12 p-8 mt-12 bg-white rounded-3xl  justify-evenly flex flex-wrap ">
-          <div className="w-full flex ">
+          {/* <div className="w-full flex ">
             <button
               className="w-2/4 h-12 mr-1 bg-gray-400 rounded-l-2xl hover:bg-blue-500 text-white font-bold text-2xl"
               onClick={() => handlePrev()}
@@ -57,7 +56,16 @@ const DetailsBody = ({ data }) => {
             >
               Next
             </button>
-          </div>
+          </div> */}
+          <Link href="/"
+          className="w-full h-12 flex justify-center items-center mr-1 bg-gray-400 rounded-2xl hover:bg-blue-500 text-white font-bold text-2xl"
+          >
+          <button
+              
+
+            >
+              Back to Menu
+            </button></Link>
           <div className="w-full p-4 bg-slate-300 mt-8 flex flex-wrap flex-col justify-center items-center rounded-2xl">
             <PokemonDetails data={details} />
           </div>
