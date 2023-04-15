@@ -33,65 +33,45 @@ const PokemonDetails = ({ data }) => {
           <div className=" p-4 bg-blue-500 flex flex-col flex-wrap justify-between rounded-2xl text-[1.2rem] text-white gap-4 border-black border-2">
             <span className="font-medium">Type</span>
             <span className="flex justify-start">
-              {pokeInfo.types.map((items, index) =>
-                items === "Grass" ? (
-                  <span className="w-24 h-8 mx-2 rounded-lg bg-green-600 rounded  flex justify-center items-center text-lg">
-                    {items}
-                  </span>
-                ) : items === "Poison" ? (
-                  <span className="w-24 h-8 mx-2 rounded-lg bg-violet-600 rounded  flex justify-center items-center text-lg">
-                    {items}
-                  </span>
-                ) : items === "Fire" ? (
-                  <span className="w-24 h-8 mx-2 rounded-lg bg-amber-600 rounded  flex justify-center items-center text-lg">
-                    {items}
-                  </span>
-                ) : items === "Water" ? (
-                  <span className="w-24 h-8 mx-2 rounded-lg bg-cyan-600 rounded  flex justify-center items-center text-lg">
-                    {items}
-                  </span>
-                ) : items === "Ice" ? (
-                  <span className="w-24 h-8 mx-2 rounded-lg bg-cyan-300 rounded  flex justify-center items-center text-lg">
-                    {items}
-                  </span>
-                ) : items === "Flying" ? (
-                  <span className="w-24 h-8 mx-2 rounded-lg bg-red-300 rounded  flex justify-center items-center text-lg">
-                    {items}
-                  </span>
-                ) : items === "Psychic" ? (
-                  <span className="w-24 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg">
-                    {items}
-                  </span>
-                ) : items === "Electric" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-yellow-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Fighting" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-slate-300 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Fairy" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-red-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Bug" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Steel" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Ground" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Rock" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : null
-              )}
+              {pokeInfo.types.map((items, index) => (
+                <span
+                  key={index}
+                  className={`w-24 h-8 mx-2 rounded-lg flex justify-center items-center text-lg border-black border-2
+                  ${
+                    items === "Grass"
+                      ? "bg-green-600"
+                      : items === "Poison"
+                      ? "bg-violet-600"
+                      : items === "Fire"
+                      ? "bg-amber-600"
+                      : items === "Water"
+                      ? "bg-cyan-600"
+                      : items === "Ice"
+                      ? "bg-cyan-300"
+                      : items === "Flying"
+                      ? "bg-red-300"
+                      : items === "Psychic"
+                      ? "bg-pink-400"
+                      : items === "Electric"
+                      ? "bg-yellow-400"
+                      : items === "Fighting"
+                      ? "bg-slate-300"
+                      : items === "Fairy"
+                      ? "bg-red-700"
+                      : items === "Bug"
+                      ? "bg-pink-400"
+                      : items === "Steel"
+                      ? "bg-gray-400"
+                      : items === "Ground"
+                      ? "bg-gray-500"
+                      : items === "Rock"
+                      ? "bg-yellow-400"
+                      : ""
+                  } `}
+                >
+                  {items}
+                </span>
+              ))}
             </span>
           </div>
         </div>
@@ -100,130 +80,90 @@ const PokemonDetails = ({ data }) => {
           <div className=" w-[50%] p-4  flex flex-col flex-wrap gap-3 text-[1.2rem] ">
             <span className="text-2xl font-medium">Weakness</span>
             <span className="flex justify-start flex flex-wrap gap-3">
-              {pokeInfo.weaknesses.map((items, index) =>
-                items === "Grass" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-green-600 rounded  flex justify-center items-center text-lg border-black border-2">
-                    {items}
-                  </span>
-                ) : items === "Poison" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-violet-600 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Fire" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-amber-600 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Water" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-cyan-600 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Ice" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-cyan-300 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Flying" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-red-300 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Psychic" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Electric" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-yellow-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Fighting" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-slate-300 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Fairy" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-red-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Bug" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Steel" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Ground" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Rock" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : null
-              )}
+              {pokeInfo.weaknesses.map((items, index) => (
+                <span
+                  key={index}
+                  className={`w-24 h-8 mx-2 rounded-lg flex justify-center items-center text-lg border-black border-2
+                ${
+                  items === "Grass"
+                    ? "bg-green-600"
+                    : items === "Poison"
+                    ? "bg-violet-600"
+                    : items === "Fire"
+                    ? "bg-amber-600"
+                    : items === "Water"
+                    ? "bg-cyan-600"
+                    : items === "Ice"
+                    ? "bg-cyan-300"
+                    : items === "Flying"
+                    ? "bg-red-300"
+                    : items === "Psychic"
+                    ? "bg-pink-400"
+                    : items === "Electric"
+                    ? "bg-yellow-400"
+                    : items === "Fighting"
+                    ? "bg-slate-300"
+                    : items === "Fairy"
+                    ? "bg-red-700"
+                    : items === "Bug"
+                    ? "bg-pink-400"
+                    : items === "Steel"
+                    ? "bg-gray-400"
+                    : items === "Ground"
+                    ? "bg-gray-500"
+                    : items === "Rock"
+                    ? "bg-yellow-400"
+                    : ""
+                } `}
+                >
+                  {items}
+                </span>
+              ))}
             </span>
           </div>
 
           <div className=" w-[50%] p-4  flex flex-col flex-wrap gap-3 text-[1.2rem] ">
             <span className="text-2xl font-medium">resistant</span>
             <span className="flex justify-start flex flex-wrap gap-3">
-              {pokeInfo.resistant.map((items, index) =>
-                items === "Grass" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-green-600 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Poison" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-violet-600 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Fire" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-amber-600 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Water" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-cyan-600 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Ice" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-cyan-300 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Flying" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-red-300 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Psychic" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Electric" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-yellow-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Fighting" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-slate-300 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Fairy" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-red-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Bug" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Steel" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Ground" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : items === "Rock" ? (
-                  <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                    {items}
-                  </span>
-                ) : null
-              )}
+              {pokeInfo.resistant.map((items, index) => (
+                <span
+                  key={index}
+                  className={`w-24 h-8 mx-2 rounded-lg flex justify-center items-center text-lg border-black border-2
+                ${
+                  items === "Grass"
+                    ? "bg-green-600"
+                    : items === "Poison"
+                    ? "bg-violet-600"
+                    : items === "Fire"
+                    ? "bg-amber-600"
+                    : items === "Water"
+                    ? "bg-cyan-600"
+                    : items === "Ice"
+                    ? "bg-cyan-300"
+                    : items === "Flying"
+                    ? "bg-red-300"
+                    : items === "Psychic"
+                    ? "bg-pink-400"
+                    : items === "Electric"
+                    ? "bg-yellow-400"
+                    : items === "Fighting"
+                    ? "bg-slate-300"
+                    : items === "Fairy"
+                    ? "bg-red-700"
+                    : items === "Bug"
+                    ? "bg-pink-400"
+                    : items === "Steel"
+                    ? "bg-gray-400"
+                    : items === "Ground"
+                    ? "bg-gray-500"
+                    : items === "Rock"
+                    ? "bg-yellow-400"
+                    : ""
+                } `}
+                >
+                  {items}
+                </span>
+              ))}
             </span>
           </div>
         </div>
@@ -242,13 +182,12 @@ const PokemonDetails = ({ data }) => {
           <div className="w-[51rem] h-[51rem] p-4 bg-blue-600 flex flex-col items-center gap-8 ">
             <span className="text-white font-semibold text-2xl">Evolution</span>
             <div className="flex gap-4">
-              {
-                evolutionTrack!==null ? (
-                  evolutionTrack.map((pokedata, index) => (
-                    <Link href={`${pokedata.name}`}>
+              {evolutionTrack !== null ? (
+                evolutionTrack.map((pokedata, index) => (
+                  <Link href={`${pokedata.name}`} key={index}>
                     <div
                       className="flex flex-col items-center gap-2 text-white text-lg font-bold"
-                      keys={pokedata.id}
+                      
                     >
                       <div className="w-[10rem] h-[10rem] rounded-full border-black border-4 bg-white flex justify-center items-center">
                         <Image
@@ -259,81 +198,58 @@ const PokemonDetails = ({ data }) => {
                           className="scale-75"
                         />
                       </div>
-    
+
                       <span>
                         {pokedata.name} #{pokedata.number}
                       </span>
-    
+
                       <span className="flex justify-start">
-                        {pokedata.types.map((items, index) =>
-                          items === "Grass" ? (
-                            <span className="w-24 h-6 mx-2 rounded-lg bg-green-600 rounded  flex justify-center items-center text-lg">
-                              {items}
-                            </span>
-                          ) : items === "Poison" ? (
-                            <span className="w-24 h-6 mx-2 rounded-lg bg-violet-600 rounded  flex justify-center items-center text-lg">
-                              {items}
-                            </span>
-                          ) : items === "Fire" ? (
-                            <span className="w-24 h-6 mx-2 rounded-lg bg-amber-600 rounded  flex justify-center items-center text-lg">
-                              {items}
-                            </span>
-                          ) : items === "Water" ? (
-                            <span className="w-24 h-6 mx-2 rounded-lg bg-cyan-600 rounded  flex justify-center items-center text-lg">
-                              {items}
-                            </span>
-                          ) : items === "Ice" ? (
-                            <span className="w-24 h-6 mx-2 rounded-lg bg-cyan-300 rounded  flex justify-center items-center text-lg">
-                              {items}
-                            </span>
-                          ) : items === "Flying" ? (
-                            <span className="w-24 h-6 mx-2 rounded-lg bg-red-300 rounded  flex justify-center items-center text-lg">
-                              {items}
-                            </span>
-                          ) : items === "Psychic" ? (
-                            <span className="w-24 h-6 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg">
-                              {items}
-                            </span>
-                          ) : items === "Electric" ? (
-                            <span className="w-28 h-8 mx-2 rounded-lg bg-yellow-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                              {items}
-                            </span>
-                          ) : items === "Fighting" ? (
-                            <span className="w-28 h-8 mx-2 rounded-lg bg-slate-300 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                              {items}
-                            </span>
-                          ) : items === "Fairy" ? (
-                            <span className="w-28 h-8 mx-2 rounded-lg bg-red-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                              {items}
-                            </span>
-                          ) : items === "Bug" ? (
-                            <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                              {items}
-                            </span>
-                          ) : items === "Steel" ? (
-                            <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                              {items}
-                            </span>
-                          ) : items === "Ground" ? (
-                            <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                              {items}
-                            </span>
-                          ) : items === "Rock" ? (
-                            <span className="w-28 h-8 mx-2 rounded-lg bg-pink-400 rounded  flex justify-center items-center text-lg border-black border-2 ">
-                              {items}
-                            </span>
-                          ) : null
-                        )}
+                        {pokedata.types.map((items, index) => (
+                          <span
+                            key={index}
+                            className={`w-24 h-8 mx-2 rounded-lg flex justify-center items-center text-lg border-black border-2
+                          ${
+                            items === "Grass"
+                              ? "bg-green-600"
+                              : items === "Poison"
+                              ? "bg-violet-600"
+                              : items === "Fire"
+                              ? "bg-amber-600"
+                              : items === "Water"
+                              ? "bg-cyan-600"
+                              : items === "Ice"
+                              ? "bg-cyan-300"
+                              : items === "Flying"
+                              ? "bg-red-300"
+                              : items === "Psychic"
+                              ? "bg-pink-400"
+                              : items === "Electric"
+                              ? "bg-yellow-400"
+                              : items === "Fighting"
+                              ? "bg-slate-300"
+                              : items === "Fairy"
+                              ? "bg-red-700"
+                              : items === "Bug"
+                              ? "bg-pink-400"
+                              : items === "Steel"
+                              ? "bg-gray-400"
+                              : items === "Ground"
+                              ? "bg-gray-500"
+                              : items === "Rock"
+                              ? "bg-yellow-400"
+                              : ""
+                          } `}
+                          >
+                            {items}
+                          </span>
+                        ))}
                       </span>
                     </div>
-                    </Link>
-                  ))
-                  
-                ):<span>This is the Maximum State. No Next Evolution</span>
-              
-              
-              
-              }
+                  </Link>
+                ))
+              ) : (
+                <span>This is the Maximum State. No Next Evolution</span>
+              )}
             </div>
           </div>
         ) : null}

@@ -8,11 +8,11 @@ const PokemonShow = ({ pokedata }) => {
   return (
     <div className=" w-[200px]  flex flex-col p-2 ">
       <div className="w-[180px] h-[180px] flex items-center justify-center">
-        <img
+        <Image
           src={data.image}
           alt="Picture of the author"
-          height={0}
-          width={0}
+          height={150}
+          width={150}
           className=" w-[180px] h-[180px] object-contain"
         />
       </div>
