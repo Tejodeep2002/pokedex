@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -17,11 +19,6 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #cbd5e1;
+  font:'Signika Negative', sans-serif;
 }
