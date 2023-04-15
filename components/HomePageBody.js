@@ -13,7 +13,6 @@ const HomePageBody = ({ data }) => {
   const firstPostIndex = lastPostIndex - itemsPerPage;
   const records = pokemonData.slice(firstPostIndex, lastPostIndex);
 
-  // const noOfPages = Math.ceil(pokemonData.length / recordsPerPage);
   const pages = [];
   for (let i = 1; i <= Math.ceil(pokemonData.length / itemsPerPage); i++) {
     pages.push(i);
@@ -68,7 +67,8 @@ const HomePageBody = ({ data }) => {
               return (
                 <button
                   className={` bg-blue-500 rounded-none  p-2 text-xl page-link ${
-                    currentPage === number ? "bg-white text-blue-600 font-bold"
+                    currentPage === number
+                      ? "bg-white text-blue-600 font-bold"
                       : null
                   }`}
                   key={index}

@@ -88,31 +88,29 @@ export async function getStaticProps(context) {
       }
     `,
     variables: {
-      "id": pokemonId,
-      "name": pokemonName
+      id: pokemonId,
+      name: pokemonName,
     },
   });
 
-
   return {
     props: { data },
-    
   };
 }
 
 const slug = ({ data }) => {
-
-  console.log(data)
+  console.log(data);
   return (
     <>
       <Head>
         <title>Pokemon</title>
       </Head>
       <Navbar />
-      {
-        (data!== undefined && data!== null ) ?<DetailsBody data={data.pokemon} />:<div></div>
-      }
-      
+      {data !== undefined && data !== null ? (
+        <DetailsBody data={data.pokemon} />
+      ) : (
+        <div></div>
+      )}
     </>
   );
 };

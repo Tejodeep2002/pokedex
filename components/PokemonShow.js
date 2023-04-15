@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 
 const PokemonShow = ({ pokedata }) => {
   const data = pokedata;
-  
 
   return (
     <div className=" w-[200px]  flex flex-col p-2 ">
@@ -22,7 +21,10 @@ const PokemonShow = ({ pokedata }) => {
         <span className="font-bold">{data.name}</span>
         <div className="flex">
           {data.types.map((types, index) => (
-            <div className=" w-16 h-4 bg-green-500 m-1 flex item-center justify-center text-xs rounded text-white" key={index}>
+            <div
+              className=" w-16 h-4 bg-green-500 m-1 flex item-center justify-center text-xs rounded text-white"
+              key={index}
+            >
               {types}
             </div>
           ))}

@@ -1,9 +1,5 @@
 import Head from "next/head";
-import {
-  ApolloClient,
-  InMemoryCache,
-  gql,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import Navbar from "@/components/Navbar";
 
 import HomePageBody from "@/components/HomePageBody";

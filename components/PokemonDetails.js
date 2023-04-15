@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 const Pokemondata = require("./Data");
 
 const PokemonDetails = ({ data }) => {
-
   const [pokeInfo, setPokeInfo] = useState(data);
   const [showEvolution, setShowEvolution] = useState(false);
   const [evolutionTrack, setEvolutionTrack] = useState(data.evolutions);
@@ -190,7 +189,10 @@ const PokemonDetails = ({ data }) => {
             <div className="flex gap-4">
               {evolutionTrack !== null ? (
                 evolutionTrack.map((pokedata, index) => (
-                  <div className="flex flex-col items-center gap-2 text-white text-lg font-bold" key={index}>
+                  <div
+                    className="flex flex-col items-center gap-2 text-white text-lg font-bold"
+                    key={index}
+                  >
                     <div className="w-[10rem] h-[10rem] rounded-full border-black border-4 bg-white flex justify-center items-center ">
                       <Image
                         src={pokedata.image}

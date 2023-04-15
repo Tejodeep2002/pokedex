@@ -4,61 +4,12 @@ import PokemonDetails from "./PokemonDetails";
 import Link from "next/link";
 
 const DetailsBody = ({ data }) => {
-  // const router = useRouter();
-  // const query = router.query.slug;
-
-  // console.log(query)
-
   const [pokemonData, setPokemonData] = useState(data);
-  // const [details, setDetails] = useState(
-  //   ...pokemonData.filter((items) => items.name === query)
-  // );
-
-  // const [prevDetails, setPrevDetails] = useState(
-  //   ...pokemonData.filter(
-  //     (items, index) => parseInt(items.number) === parseInt(details.number) - 1
-  //   )
-  // );
-  // const [nextDetails, setNextDetails] = useState(
-  //   ...pokemonData.filter(
-  //     (items, index) => parseInt(items.number) === parseInt(details.number) + 1
-  //   )
-  // );
-
-  // const handlePrev = () => {
-  //   if (details.number - 1 !== 0) {
-  //     window.location.href = `/details/${prevDetails.name}`;
-  //   }
-  // };
-
-  // const handleNext = () => {
-  //   if (pokemonData.length !== details.number) {
-  //     window.location.href = `/details/${nextDetails.name}`;
-  //   }
-  // };
-
 
   return (
     <>
       <div className="flex flex-col items-center justify-center ">
         <div className="w-9/12 p-8 mt-12 bg-white rounded-3xl  justify-evenly flex flex-wrap ">
-          {/* <div className="w-full flex ">
-            <button
-              className="w-2/4 h-12 mr-1 bg-gray-400 rounded-l-2xl hover:bg-blue-500 text-white font-bold text-2xl"
-              onClick={() => handlePrev()}
-              // disabled={currentPage === pages[0] ? true : false}
-            >
-              Previous
-            </button>
-
-            <button
-              className="w-2/4 h-12 ml-1 bg-gray-400 rounded-r-2xl hover:bg-blue-500 text-white font-bold text-2xl"
-              onClick={() => handleNext()}
-              // disabled={currentPage === pages[pages.length - 1] ? true : false}
-            >
-              Next
-            </button>
-          </div> */}
           <Link
             href="/"
             className="w-full h-12 flex justify-center items-center mr-1 bg-gray-400 rounded-2xl hover:bg-blue-500 text-white font-bold text-2xl"
