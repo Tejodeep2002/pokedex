@@ -10,6 +10,7 @@ import {
   gql,
 } from "@apollo/client";
 import DetailsBody from "@/components/DetailsBody";
+import { useRouter } from "next/router";
 
 export async function getStaticPaths() {
   const client = new ApolloClient({
@@ -32,7 +33,7 @@ export async function getStaticPaths() {
     },
   });
 
-  const paths = data.pokemons.map((pokemon) => {
+  const paths = await data.pokemons.map((pokemon) => {
     return {
       params: { Slug: `${pokemon.name}` },
     };
@@ -105,6 +106,12 @@ export async function getStaticProps(context) {
 }
 
 const Slug = ({ data }) => {
+  const router = useRouter()
+
+  console.log("line 111",router.query)
+
+  // const pokemonName = query[0];
+  // const pokemonId = query[1];
 
 
   return (
